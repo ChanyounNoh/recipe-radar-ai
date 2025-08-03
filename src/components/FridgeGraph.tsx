@@ -19,7 +19,7 @@ const FridgeGraph = () => {
   return (
     <div className="mx-4 mb-6">
       <div className="bg-card rounded-2xl p-6 shadow-soft">
-        <h2 className="text-xl font-bold mb-4 text-center">공윤공윤곰 님의 냉장고</h2>
+        <h2 className="text-xl font-bold mb-4 text-center">공육공육공 님의 냉장고</h2>
         
         {/* 그라데이션 바 */}
         <div className="h-2 bg-gradient-freshness rounded-full mb-6"></div>
