@@ -2,9 +2,9 @@ const FridgeGraph = () => {
   const ingredients = [
     { name: "계란", position: { x: 15, y: 25 }, status: "danger" },
     { name: "버터", position: { x: 35, y: 20 }, status: "danger" },
-    { name: "냉동삼겹살", position: { x: 75, y: 30 }, status: "fresh" },
-    { name: "고추", position: { x: 25, y: 55 }, status: "warning" },
-    { name: "김치", position: { x: 65, y: 60 }, status: "fresh" }
+    { name: "마늘", position: { x: 75, y: 30 }, status: "warning" },
+    { name: "김치", position: { x: 25, y: 55 }, status: "warning" },
+    { name: "양파", position: { x: 65, y: 60 }, status: "fresh" }
   ];
 
   const getStatusColor = (status: string) => {
