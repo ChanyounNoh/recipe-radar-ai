@@ -1,10 +1,10 @@
 const FridgeGraph = () => {
   const ingredients = [
     { name: "계란", position: { x: 15, y: 25 }, status: "danger" },
-    { name: "계란", position: { x: 35, y: 20 }, status: "danger" },
-    { name: "냉동삼겹살", position: { x: 75, y: 30 }, status: "fresh" },
-    { name: "고추", position: { x: 25, y: 55 }, status: "warning" },
-    { name: "계란", position: { x: 65, y: 60 }, status: "fresh" }
+    { name: "버터", position: { x: 35, y: 20 }, status: "danger" },
+    { name: "마늘", position: { x: 75, y: 30 }, status: "warning" },
+    { name: "김치", position: { x: 25, y: 55 }, status: "warning" },
+    { name: "양파", position: { x: 65, y: 60 }, status: "fresh" }
   ];
 
   const getStatusColor = (status: string) => {
@@ -19,7 +19,7 @@ const FridgeGraph = () => {
   return (
     <div className="mx-4 mb-6">
       <div className="bg-card rounded-2xl p-6 shadow-soft">
-        <h2 className="text-xl font-bold mb-4 text-center">공윤공윤곰 님의 냉장고</h2>
+        <h2 className="text-xl font-bold mb-4 text-center">공육공육공 님의 냉장고</h2>
         
         {/* 그라데이션 바 */}
         <div className="h-2 bg-gradient-freshness rounded-full mb-6"></div>
