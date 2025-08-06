@@ -34,7 +34,7 @@ const MenuRecommendations = () => {
         <div className="flex gap-2">
           <button className="px-3 py-1 text-xs bg-danger-light text-danger rounded-full">유통기한순</button>
           <button className="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">빈도순</button>
-          <button className="px-3 py-1 text-xs bg-fresh-light text-fresh rounded-full border border-fresh">즐겨찾는순</button>
+          <button className="px-3 py-1 text-xs bg-fresh-light text-fresh rounded-full border border-fresh">냉동삼겹살</button>
         </div>
       </div>
       
