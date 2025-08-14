@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { AlertTriangle, CheckCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { toast } from "@/hooks/use-toast";
 
 const MenuRecommendations = () => {
+  const [selectedFilter, setSelectedFilter] = useState("유통기한순");
+  
   const recommendations = [
     {
       name: "된장찌개",
@@ -27,20 +31,54 @@ const MenuRecommendations = () => {
     }
   ];
 
+  const handleFilterClick = (filter: string) => {
+    setSelectedFilter(filter);
+    toast({
+      title: "필터 변경",
+      description: `${filter}로 정렬되었습니다.`,
+    });
+  };
+
+  const handleRecipeClick = (recipeName: string) => {
+    toast({
+      title: "레시피 선택",
+      description: `${recipeName} 레시피를 확인합니다.`,
+    });
+  };
+
   return (
     <div className="px-4">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-bold">메뉴 추천</h3>
         <div className="flex gap-2">
-          <button className="px-3 py-1 text-xs bg-danger-light text-danger rounded-full">유통기한순</button>
-          <button className="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">빈도순</button>
-          <button className="px-3 py-1 text-xs bg-fresh-light text-fresh rounded-full border border-fresh">즐겨찾는순</button>
+          <button 
+            onClick={() => handleFilterClick("유통기한순")}
+            className={`px-3 py-1 text-xs rounded-full transition-colors ${selectedFilter === "유통기한순" ? "bg-danger-light text-danger" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}
+          >
+            유통기한순
+          </button>
+          <button 
+            onClick={() => handleFilterClick("빈도순")}
+            className={`px-3 py-1 text-xs rounded-full transition-colors ${selectedFilter === "빈도순" ? "bg-primary/20 text-primary" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}
+          >
+            빈도순
+          </button>
+          <button 
+            onClick={() => handleFilterClick("즐겨찾는순")}
+            className={`px-3 py-1 text-xs rounded-full border transition-colors ${selectedFilter === "즐겨찾는순" ? "bg-fresh-light text-fresh border-fresh" : "bg-muted text-muted-foreground border-muted hover:bg-muted/80"}`}
+          >
+            즐겨찾는순
+          </button>
         </div>
       </div>
       
       <div className="space-y-3">
         {recommendations.map((item, index) => (
-          <Card key={index} className={`p-4 ${item.bgColor} border-l-4 ${item.borderColor} border-y-0 border-r-0 shadow-soft`}>
+          <Card 
+            key={index} 
+            onClick={() => handleRecipeClick(item.name)}
+            className={`p-4 ${item.bgColor} border-l-4 ${item.borderColor} border-y-0 border-r-0 shadow-soft cursor-pointer hover:shadow-medium transition-all duration-200 hover:scale-[1.02]`}
+          >
             <div className="flex justify-between items-start">
               <div className="flex-1">
                 <h4 className="font-semibold text-foreground">{item.name}</h4>

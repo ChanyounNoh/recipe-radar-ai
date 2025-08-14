@@ -1,11 +1,15 @@
 import { Home, Refrigerator, BookOpen, CheckSquare } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const BottomNavigation = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  
   const navItems = [
-    { icon: Home, label: "Home", active: true },
-    { icon: Refrigerator, label: "Fridge", active: false },
-    { icon: BookOpen, label: "Recipes", active: false },
-    { icon: CheckSquare, label: "To do", active: false }
+    { icon: Home, label: "Home", path: "/", active: location.pathname === "/" },
+    { icon: Refrigerator, label: "Fridge", path: "/fridge", active: location.pathname === "/fridge" },
+    { icon: BookOpen, label: "Recipes", path: "/recipes", active: location.pathname === "/recipes" },
+    { icon: CheckSquare, label: "To do", path: "/todo", active: location.pathname === "/todo" }
   ];
 
   return (
@@ -14,8 +18,9 @@ const BottomNavigation = () => {
         {navItems.map((item, index) => (
           <button
             key={index}
-            className={`flex flex-col items-center gap-1 p-2 min-w-0 ${
-              item.active ? "text-primary" : "text-muted-foreground"
+            onClick={() => navigate(item.path)}
+            className={`flex flex-col items-center gap-1 p-2 min-w-0 transition-colors ${
+              item.active ? "text-primary" : "text-muted-foreground hover:text-primary/70"
             }`}
           >
             <item.icon className="w-6 h-6" />
